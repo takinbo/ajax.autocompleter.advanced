@@ -30,7 +30,7 @@
                     	    
 							
                             <div id="autocomplete_display" class="tokenizer_input">
-                                            <input type="text" size="1" tabindex="" id="autocomplete_input"   />
+                                            <input type="text" size="1" tabindex="" id="autocomplete_input" name="autocomplete_input"   />
                             </div>                                                                          
                         </div>
                         <div id="autocomplete_populate" class="clearfix autocomplete typeahead_list" style="width: 358px; height: auto; overflow-y: hidden;display:none">
@@ -44,24 +44,12 @@
                         (new Image()).src='inbox/images/token_hover.gif';
                         (new Image()).src='inbox/images/token_x.gif';
 
-                        var contacts = [
-                        {name:"phoenix zhuang",email:"phoenix@rorcraft.com"}, 
-                        {name:"jian xie",email:"jan.xie@rorcraft.com"}, 
-                        {name:"isaiah peng",email:"isaiah.peng@rorcraft.com"}, 
-                        {name:"chris chan",email:"chris.chan@rorcraft.com"}, 
-                        {name:"rex chung",email:"rex@rorcraft.com"},
-                        {name:"chung rex",email:"chung@rorcraft.com"},
-                        {name:"chan chris",email:"chan@rorcraft.com"},
-                        {name:"peng isaiah",email:"peng@rorcraft.com"},
- 						{name:"albert chang",email:"albert@yahoo.com"}];
-
-
-                        var typeahead = new Autocompleter.LocalAdvanced('autocomplete_input', 'autocomplete_populate', contacts, {                                                  
+                        var typeahead = new Ajax.Autocompleter.Advanced('autocomplete_input', 'autocomplete_populate', 'search.php', {                                                  
                             frequency: 0.1,
                             updateElement: addContactToList,
                             search_field: "name"
                         });
-                        var hidden_input = new HiddenInput('hidden_input',typeahead);
+                        var hidden_input = new HiddenInput('autocomplete_input',typeahead);
 
                         </script>                       
                     </dd>
